@@ -1,0 +1,43 @@
+﻿@model WebApplication8.Models.Trainee
+@{
+    ViewBag.Title = "DetailsTrainee";
+}
+
+<h2>DetailsTrainee</h2>
+@Html.ActionLink("Back", "TraineeManagement", "Staff", null, new { @class = "btn btn-primary" })
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Model.UserName</h3>
+    </div>
+    <div class="panel-body">
+        @Model.Id
+    </div>
+    <div class="panel-body">
+        @Model.Age
+    </div>
+    <div class="panel-body">
+        @Model.DateofBirth
+    </div>
+    <div class="panel-body">
+        @Model.Education
+    </div>
+    <div class="panel-body">
+        @Model.MainProgrammingLang
+    </div>
+    <div class="panel-body">
+        @Model.ToeicScore
+    </div>
+    <div class="panel-body">
+        @Model.ExpDetail
+    </div>
+    <div class="panel-body">
+        @Model.Department
+    </div>
+    <div class="panel-body">
+        @Model.Location
+    </div>
+</div>
+
+
+

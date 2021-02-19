@@ -1,0 +1,39 @@
+﻿@model List<WebApplication8.Models.Category>
+@{
+    ViewBag.Title = "CategoryView";
+}
+
+<h2>CategoryView</h2>
+
+<h2>CourseManagement</h2>
+@Html.ActionLink("Create", "CreateCategory", "Staff")
+@{ int i = 0;
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var k1 in Model)
+            {
+                i++;
+                <tr>
+                    <td scope="row">@i</td>
+                    <td scope="row">@k1.CategoryName</td>
+                    <td scope="row">
+                        @Html.ActionLink("Delete", "DeleteCategory", "Staff",
+                                  new { id = k1.Id },
+                                  new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+

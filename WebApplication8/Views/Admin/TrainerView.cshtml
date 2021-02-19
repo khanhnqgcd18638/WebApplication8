@@ -1,0 +1,31 @@
+﻿@model List<WebApplication8.Models.ApplicationUser>
+@{
+    ViewBag.Title = "TrainerView";
+}
+
+<h2>TrainerView</h2>
+@Html.ActionLink("Create a new account", "Register", "Account", null, new { @class = "btn btn-default" })
+<table style="width:100%;border:2px solid black">
+    <tr style="border: 2px solid black">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="border: 2px solid black">
+            <td style="border: 2px solid black;text-align:center">@item.Id</td>
+            <td style="border: 2px solid black;text-align:center">@item.UserName</td>
+            <td style="border: 2px solid black;text-align: center">@item.PasswordHash</td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", "Admin",
+                       new { id = item.Id },
+                       new { @class = "btn btn-default" })
+            </td>
+        </tr>
+
+    }
+</table>
+
+

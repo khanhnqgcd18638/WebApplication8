@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@if (!User.Identity.IsAuthenticated)
+{
+    <h1>Welcome</h1>
+}
+@if (User.IsInRole("admin"))
+{
+    <h1>Welcome Admin</h1>
+}
+@if (User.IsInRole("staff"))
+{
+    <h1>Welcome</h1>
+}
+@if (User.IsInRole("trainer"))
+{
+    <h1>Welcome Admin</h1>
+}

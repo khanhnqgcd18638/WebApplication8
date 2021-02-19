@@ -1,0 +1,41 @@
+﻿@model List<WebApplication8.Models.Course>
+@{
+    ViewBag.Title = "CourseManagement";
+}
+
+<h2>CourseManagement</h2>
+
+@Html.ActionLink("Create", "CreateCourse", "Staff")
+@Html.ActionLink("Manage Category", "CategoryView", "Staff")
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Course</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CourseName</td>
+                <td>@item.Category.CategoryName</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditCourse", "Staff",
+                                 new { id = item.Id },
+                                 new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "DeleteCourse", "Staff",
+                                 new { id = item.Id },
+                                 new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Details", "Details", "Todos",
+                                 new { id = item.Id },
+                                 new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

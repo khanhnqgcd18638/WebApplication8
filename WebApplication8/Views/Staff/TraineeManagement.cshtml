@@ -1,0 +1,48 @@
+﻿@model List<WebApplication8.Models.ApplicationUser>
+@{
+    ViewBag.Title = "TraineeManagement";
+}
+
+<h2>TraineeManagement</h2>
+@using (Html.BeginForm("TraineeManagement", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.Label("Search")
+        @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+}
+@Html.ActionLink("Create a new account", "Register", "Account", null, new { @class = "btn btn-default" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteTrainee", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-dander" })
+                    @Html.ActionLink("Update", "UpdateTrainee", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detail", "DetailsTrainee", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-info" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

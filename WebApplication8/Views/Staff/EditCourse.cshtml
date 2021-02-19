@@ -1,0 +1,32 @@
+﻿@model WebApplication8.Models.CategoryCourseViewModel
+@{
+    ViewBag.Title = "EditCourse";
+}
+    <h4>Edit Course</h4>
+@Html.ActionLink("Back To Course", "CourseManagement", "Staff", null, new { @class = "btn btn-default" })
+<br>
+@using (Html.BeginForm("EditCourse", "Staff", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.CourseName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.Course.CourseName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Course.CourseName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.Category, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Course.Category, new SelectList(Model.Categories, "Id", "CategoryName"), new { @class = "dropdown" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Update" />
+        </div>
+    </div>
+}
+

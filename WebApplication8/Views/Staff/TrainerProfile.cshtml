@@ -1,0 +1,34 @@
+﻿@model List<WebApplication8.Models.ApplicationUser>
+@{
+    ViewBag.Title = "TrainerProfile";
+}
+
+<h2>TrainerProfile</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td>
+                    @Html.ActionLink("Update", "UpdateTrainer", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detail", "DetailsTrainer", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

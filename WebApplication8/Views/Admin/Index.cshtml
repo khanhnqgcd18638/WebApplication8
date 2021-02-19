@@ -1,0 +1,32 @@
+﻿@model List<WebApplication8.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create a new account", "Register", "Account", null, new { @class = "btn btn-default" })
+<table style="width:100%;border:2px solid black">
+    <tr style="border: 2px solid black">
+        <th style="border: 2px solid black;text-align:center">ID</th>
+        <th style="border: 2px solid black;text-align:center">Name</th>
+        <th style="border: 2px solid black;text-align:center">Password</th>
+        <th style="border: 2px solid black;text-align:center">Action</th>
+    </tr>
+    @foreach (var k1 in Model)
+    {
+        <tr style="border: 2px solid black">
+            <td style="border: 2px solid black;text-align:center">@k1.Id</td>
+            <td style="border: 2px solid black;text-align:center">@k1.UserName</td>
+            <td style="border: 2px solid black;text-align: center">@k1.PasswordHash</td>
+            <td style="text-align:center">
+                @Html.ActionLink("Delete", "Delete", "Admin",
+                new { id = k1.Id },
+                new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+
+
+
