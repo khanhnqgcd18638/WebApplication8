@@ -1,0 +1,65 @@
+﻿@model WebApplication8.Models.AssignViewModel
+@{
+    ViewBag.Title = "Assign";
+}
+
+<h2>Assign</h2>
+@Html.ActionLink("Assign Trainee", "AssignTrainee", new { @id = Model.Course.Id }, new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TraineeCourses)
+        {
+            <tr>
+                <td>@item.Trainee.Id</td>
+                <td>@item.Trainee.UserName</td>
+                <td>@item.Trainee.Email</td>
+                <td>
+                    @Html.ActionLink("Remove", "RemoveTrainee", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Detail", "DetailsTrainee", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-info" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+@Html.ActionLink("Assign Trainer", "AssignTrainer", new { @id = Model.Course.Id }, new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TrainerCourses)
+        {
+            <tr>
+                <td>@item.Trainer.Id</td>
+                <td>@item.Trainer.UserName</td>
+                <td>@item.Trainer.Email</td>
+                <td>
+                    @Html.ActionLink("Remove", "RemoveTrainer", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Detail", "DetailsTrainer", "Staff",
+                                new { id = item.Id },
+                                new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

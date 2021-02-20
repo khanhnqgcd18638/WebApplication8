@@ -9,6 +9,7 @@ namespace WebApplication8.Models
     {
         public int Id { get; set; }
         public string CourseName { get; set; }
+        public string Detail { get; set; }
         public int CategoryID { get; set; }
         public Category Category { get; set; }
     }

@@ -195,9 +195,37 @@
     <Compile Include="Migrations\202102191200571_up1.Designer.cs">
       <DependentUpon>202102191200571_up1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102191242309_trainerassign.cs" />
+    <Compile Include="Migrations\202102191242309_trainerassign.Designer.cs">
+      <DependentUpon>202102191242309_trainerassign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102191307343_detailc.cs" />
+    <Compile Include="Migrations\202102191307343_detailc.Designer.cs">
+      <DependentUpon>202102191307343_detailc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102191526147_ucourse.cs" />
+    <Compile Include="Migrations\202102191526147_ucourse.Designer.cs">
+      <DependentUpon>202102191526147_ucourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102191534017_new.cs" />
+    <Compile Include="Migrations\202102191534017_new.Designer.cs">
+      <DependentUpon>202102191534017_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102191534299_new1.cs" />
+    <Compile Include="Migrations\202102191534299_new1.Designer.cs">
+      <DependentUpon>202102191534299_new1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102191558558_upp.cs" />
+    <Compile Include="Migrations\202102191558558_upp.Designer.cs">
+      <DependentUpon>202102191558558_upp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102191639196_fix.cs" />
+    <Compile Include="Migrations\202102191639196_fix.Designer.cs">
+      <DependentUpon>202102191639196_fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AssignTrainerViewModel.cs" />
+    <Compile Include="Models\AssignViewModel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryCourseViewModel.cs" />
     <Compile Include="Models\Course.cs" />
@@ -205,6 +233,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Trainee.cs" />
+    <Compile Include="Models\TraineeCourse.cs" />
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Models\TrainerCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -281,6 +310,10 @@
     <Content Include="Views\Staff\CreateCategory.cshtml" />
     <Content Include="Views\Staff\CreateCourse.cshtml" />
     <Content Include="Views\Staff\EditCourse.cshtml" />
+    <Content Include="Views\Staff\DetailCourse.cshtml" />
+    <Content Include="Views\Staff\Assign.cshtml" />
+    <Content Include="Views\Staff\AssignTrainer.cshtml" />
+    <Content Include="Views\Staff\AssignTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +346,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102191200571_up1.resx">
       <DependentUpon>202102191200571_up1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191242309_trainerassign.resx">
+      <DependentUpon>202102191242309_trainerassign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191307343_detailc.resx">
+      <DependentUpon>202102191307343_detailc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191526147_ucourse.resx">
+      <DependentUpon>202102191526147_ucourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191534017_new.resx">
+      <DependentUpon>202102191534017_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191534299_new1.resx">
+      <DependentUpon>202102191534299_new1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191558558_upp.resx">
+      <DependentUpon>202102191558558_upp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102191639196_fix.resx">
+      <DependentUpon>202102191639196_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

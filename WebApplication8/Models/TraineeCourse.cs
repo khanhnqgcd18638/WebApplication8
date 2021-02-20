@@ -5,12 +5,12 @@ using System.Web;
 
 namespace WebApplication8.Models
 {
-    public class TrainerCourse
+    public class TraineeCourse
     {
         public int Id { get; set; }
-        public string TrainerId { get; set; }
-        public Trainer Trainer { get; set; }
-        public int CourseId { get; set; }
+        public int CourseID { get; set; }
         public Course Course { get; set; }
+        public string TraineeID { get; set; }
+        public Trainee Trainee { get; set; }
     }
 }

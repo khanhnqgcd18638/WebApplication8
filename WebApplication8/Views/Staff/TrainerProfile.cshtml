@@ -4,6 +4,14 @@
 }
 
 <h2>TrainerProfile</h2>
+@using (Html.BeginForm("TrainerProfile", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.Label("Search")
+        @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>

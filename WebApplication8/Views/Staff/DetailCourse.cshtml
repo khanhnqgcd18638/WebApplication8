@@ -1,0 +1,31 @@
+﻿@model WebApplication8.Models.CategoryCourseViewModel
+@{ 
+    ViewBag.Title = "DetailCourse";
+ }
+
+<h2>DetailCourse</h2>
+
+@Html.ActionLink("Back to Index", "CourseManagement", "Staff", null, new { @class = "btn btn-primary" })
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.Label("Course Name:")
+        <h3 class="panel-title">@Model.Course.CourseName</h3>
+    </div>
+
+    <div class="panel-body">
+        @Html.Label("Course ID:")
+        @Model.Course.Id
+    </div>
+
+    <div class="panel-body">
+        @Html.Label("Course Detail:")
+        @Model.Course.Detail
+    </div>
+
+    <div class="panel-body">
+        @Html.Label("Category:")
+        @Model.Course.Category.CategoryName
+    </div>
+</div>

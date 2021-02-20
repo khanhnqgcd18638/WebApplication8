@@ -5,8 +5,8 @@
 
 <h2>CourseManagement</h2>
 
-@Html.ActionLink("Create", "CreateCourse", "Staff")
-@Html.ActionLink("Manage Category", "CategoryView", "Staff")
+@Html.ActionLink("Create", "CreateCourse", "Staff",null,new { @class="btn btn-primary"})
+@Html.ActionLink("Manage Category", "CategoryView", "Staff",null,new { @class = "btn btn-success"})
 <table class="table">
     <thead>
         <tr>
@@ -26,13 +26,16 @@
                 <td>
                     @Html.ActionLink("Edit", "EditCourse", "Staff",
                                  new { id = item.Id },
-                                 new { @class = "btn btn-default" })
+                                 new { @class = "btn btn-warning" })
                     @Html.ActionLink("Delete", "DeleteCourse", "Staff",
                                  new { id = item.Id },
                                  new { @class = "btn btn-danger" })
-                    @Html.ActionLink("Details", "Details", "Todos",
+                    @Html.ActionLink("Details", "DetailCourse", "Staff",
                                  new { id = item.Id },
                                  new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Assign", "Assign", "Staff",
+                                 new { id = item.Id },
+                                 new { @class = "btn btn-warning" })
                 </td>
             </tr>
         }

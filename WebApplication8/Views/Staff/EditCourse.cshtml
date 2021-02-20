@@ -3,7 +3,7 @@
     ViewBag.Title = "EditCourse";
 }
     <h4>Edit Course</h4>
-@Html.ActionLink("Back To Course", "CourseManagement", "Staff", null, new { @class = "btn btn-default" })
+@Html.ActionLink("Back To Course", "CourseManagement", "Staff", null, new { @class = "btn btn-primary" })
 <br>
 @using (Html.BeginForm("EditCourse", "Staff", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -17,10 +17,17 @@
             @Html.ValidationMessageFor(model => model.Course.CourseName, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Course.Category, new { @class = "col-md-2 control-label" })
+     <div class="form-group">
+        @Html.Label("Course Detail", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.Course.Category, new SelectList(Model.Categories, "Id", "CategoryName"), new { @class = "dropdown" })
+            @Html.TextAreaFor(m => m.Course.Detail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Course.Detail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Course.CategoryID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Course.CategoryID, new SelectList(Model.Categories, "Id", "CategoryName"), new { @class = "dropdown" })
         </div>
     </div>
     <div class="form-group">

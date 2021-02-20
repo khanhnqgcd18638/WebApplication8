@@ -24,6 +24,8 @@ namespace WebApplication8.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<TraineeCourse> TraineeCourses { get; set; }
+        public DbSet<TrainerCourse> TrainerCourses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Courses { get; set; }
         public static ApplicationDbContext Create()

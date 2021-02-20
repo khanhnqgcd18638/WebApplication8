@@ -4,14 +4,24 @@
 }
 
 <h2>CreateCourse</h2>
-@Html.ActionLink("Back", "CourseManagement", null, new { @class = "btn btn-default" })
+@Html.ActionLink("Back", "CourseManagement", null, new { @class = "btn btn-primary" })
 <br />
+
 @using (Html.BeginForm("CreateCourse", "Staff", "POST"))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Course.CourseName, new { @class = "text-default" })
         @Html.TextBoxFor(m => m.Course.CourseName, new { @class = "form-default" })
     </div>
+    <br/>
+    <div class="form-group">
+        @Html.Label("Course Detail", new { @class = "text-default" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Course.Detail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Course.Detail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br/>
     <div class="form-group">
         @Html.Label("Category", new { @class = "text-default" })
         @Html.DropDownListFor(m => m.Id, new SelectList(Model.Categories, "Id", "CategoryName"), new { @class = "dropdown" })

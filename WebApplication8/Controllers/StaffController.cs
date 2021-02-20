@@ -94,9 +94,16 @@ namespace AppDeve.Controllers
             var trainee = _context.Users.SingleOrDefault(t => t.Id == id);
             return View(trainee);
         }
-        public ActionResult TrainerProfile()
+        public ActionResult TrainerProfile(string searchString)
         {
             var trainer = _context.Users.Where(t => t.Roles.Any(r => r.RoleId == "3")).ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                trainer = _context.Users
+                    .Where(t => t.Roles.Any(r => r.RoleId == "3") && t.UserName.Contains(searchString) == true)
+                    .ToList();
+            }
             return View(trainer);
         }
         public ActionResult DetailsTrainer(string id)
@@ -174,6 +181,7 @@ namespace AppDeve.Controllers
             var new_course = new Course()
             {
                 CourseName = categoryCourseModel.Course.CourseName,
+                Detail = categoryCourseModel.Course.Detail,
                 CategoryID = categoryCourseModel.Id
             };
             _context.Courses.Add(new_course);
@@ -204,9 +212,95 @@ namespace AppDeve.Controllers
             var course = _context.Courses.SingleOrDefault(t => t.Id == viewModel.Id);
             course.CourseName = viewModel.Course.CourseName;
             course.CategoryID = viewModel.Course.CategoryID;
+            course.Detail = viewModel.Course.Detail;
             _context.SaveChanges();
             return RedirectToAction("CourseManagement", "Staff");
         }
+        public ActionResult DetailCourse(int id)
+        {
+            var course = new CategoryCourseViewModel();
+            course.Id = id;
+            course.Course = _context.Courses.Include(t => t.Category).SingleOrDefault(t => t.Id == id);
+            return View(course);
+        }
+        public ActionResult Assign(int id)
+        {
+            var assign = new AssignViewModel()
+            {
+                TraineeCourses = _context.TraineeCourses.Where(t=>t.CourseID==id).Include(t=>t.Trainee).ToList(),
+                TrainerCourses = _context.TrainerCourses.Where(t => t.CourseId == id).Include(t=>t.Trainer).ToList(),
+                Course = _context.Courses.FirstOrDefault(t => t.Id == id)
+            };
 
+            return View(assign);
+        }
+        public ActionResult AssignTrainee(int id)
+        {
+            var assignModel = new AssignViewModel()
+            {
+                Course = _context.Courses.SingleOrDefault(t=>t.Id == id),
+                Trainees = _context.Users.OfType<Trainee>().ToList(),
+            };
+
+            return View(assignModel);
+        }
+        [HttpPost]
+        public ActionResult AssignTrainee(AssignViewModel model)
+        {
+            var traineeCourse = new TraineeCourse()
+            {
+                TraineeID = model.TraineeId,
+                CourseID = model.Course.Id,
+            };
+            if(_context.TraineeCourses.Any(t=>t.CourseID == model.Course.Id && t.TraineeID == model.TraineeId))
+            {
+                ModelState.AddModelError("Validation", "It's existed before");
+                return View(model);
+            }
+            _context.TraineeCourses.Add(traineeCourse);
+            _context.SaveChanges();
+            return RedirectToAction("Assign","Staff",new { @id = model.Course.Id});
+        }
+        public ActionResult RemoveTrainee(int id)
+        {
+            var traineeCourse = _context.TraineeCourses.SingleOrDefault(t => t.Id == id);
+            _context.TraineeCourses.Remove(traineeCourse);
+            _context.SaveChanges();
+            return RedirectToAction("Assign", "Staff", new { @id = traineeCourse.CourseID });
+        }
+        public ActionResult AssignTrainer(int id)
+        {
+            var assignModel = new AssignViewModel()
+            {
+                Course = _context.Courses.SingleOrDefault(t => t.Id == id),
+                Trainers = _context.Users.OfType<Trainer>().ToList(),
+            };
+
+            return View(assignModel);
+        }
+        [HttpPost]
+        public ActionResult AssignTrainer(AssignViewModel model)
+        {
+            var trainerCourse = new TrainerCourse()
+            {
+                TrainerId = model.TrainerId,
+                CourseId = model.Course.Id,
+            };
+            if (_context.TrainerCourses.Any(t => t.CourseId == model.Course.Id && t.TrainerId == model.TrainerId))
+            {
+                ModelState.AddModelError("Validation", "It's existed before");
+                return View(model);
+            }
+            _context.TrainerCourses.Add(trainerCourse);
+            _context.SaveChanges();
+            return RedirectToAction("Assign", "Staff", new { @id = model.Course.Id });
+        }
+        public ActionResult RemoveTrainer(int id)
+        {
+            var trainerCourse = _context.TrainerCourses.SingleOrDefault(t => t.Id == id);
+            _context.TrainerCourses.Remove(trainerCourse);
+            _context.SaveChanges();
+            return RedirectToAction("Assign","Staff",new { @id = trainerCourse.CourseId });
+        }
     }
 }
