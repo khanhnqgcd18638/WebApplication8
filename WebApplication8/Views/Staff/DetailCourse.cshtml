@@ -1,11 +1,15 @@
 ﻿@model WebApplication8.Models.CategoryCourseViewModel
-@{ 
-    ViewBag.Title = "DetailCourse";
- }
+@{ ViewBag.Title = "DetailCourse"; }
 
 <h2>DetailCourse</h2>
-
-@Html.ActionLink("Back to Index", "CourseManagement", "Staff", null, new { @class = "btn btn-primary" })
+@if (User.IsInRole("staff"))
+{
+    @Html.ActionLink("Back to Index", "CourseManagement", "Staff", null, new { @class = "btn btn-primary" })
+}
+@if (User.IsInRole("trainee"))
+{
+    @Html.ActionLink("Back", "AllCourse", "Trainee", null, new { @class = "btn btn-primary" })
+}
 
 
 <div class="panel panel-default">

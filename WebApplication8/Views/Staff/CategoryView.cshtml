@@ -4,9 +4,16 @@
 }
 
 <h2>CategoryView</h2>
-
+@using (Html.BeginForm("CategoryView", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.Label("Search")
+        @Html.TextBox("searchString", null, new { @class = "form-control" })
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+}
 @Html.ActionLink("Back To Course", "CourseManagement", "Staff", null, new { @class = "btn btn-primary" })
-@Html.ActionLink("Create", "CreateCategory", "Staff",null,new { @class = "btn btn-primary"})
+@Html.ActionLink("Create", "CreateCategory", "Staff", null, new { @class = "btn btn-primary" })
 @{ int i = 0;
 
     <table class="table">

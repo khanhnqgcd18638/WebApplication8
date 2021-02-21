@@ -1,0 +1,28 @@
+﻿@model WebApplication8.Models.Trainer
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Profile</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Model.UserName</h3>
+    </div>
+    <div class="panel-body">
+        @Model.Email
+    </div>
+    <div class="panel-body">
+        @Model.Education
+    </div>
+    <div class="panel-body">
+        @Model.WorkPlace
+    </div>
+    <div class="panel-body">
+        @Model.Telephone
+    </div>
+    <div class="panel-body">
+        @Model.Type
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿@model List<WebApplication8.Models.Course>
+@{
+    ViewBag.Title = "CourseAssign";
+}
+
+<h2>CourseAssign</h2>
+@Html.ActionLink("Back", "Index", "Trainer", null, new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Course</th>
+            <th scope="col">Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CourseName</td>
+                <td>@item.Category.CategoryName</td>
+            </tr>
+        }
+    </tbody>
+</table>

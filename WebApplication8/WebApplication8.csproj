@@ -172,6 +172,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\TraineeController.cs" />
+    <Compile Include="Controllers\TrainerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,6 +224,10 @@
     <Compile Include="Migrations\202102191639196_fix.cs" />
     <Compile Include="Migrations\202102191639196_fix.Designer.cs">
       <DependentUpon>202102191639196_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102201259460_required.cs" />
+    <Compile Include="Migrations\202102201259460_required.Designer.cs">
+      <DependentUpon>202102201259460_required.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -314,6 +320,13 @@
     <Content Include="Views\Staff\Assign.cshtml" />
     <Content Include="Views\Staff\AssignTrainer.cshtml" />
     <Content Include="Views\Staff\AssignTrainee.cshtml" />
+    <Content Include="Views\Trainer\EditTrainer.cshtml" />
+    <Content Include="Views\Trainer\Index.cshtml" />
+    <Content Include="Views\Trainer\CourseAssign.cshtml" />
+    <Content Include="Views\Trainee\Index.cshtml" />
+    <Content Include="Views\Trainee\EditTrainee.cshtml" />
+    <Content Include="Views\Trainee\AllCourse.cshtml" />
+    <Content Include="Views\Trainee\CourseAssign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102191639196_fix.resx">
       <DependentUpon>202102191639196_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102201259460_required.resx">
+      <DependentUpon>202102201259460_required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

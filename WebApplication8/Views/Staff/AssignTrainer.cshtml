@@ -6,7 +6,7 @@
 <h2>AssignTrainee</h2>
 @Html.ActionLink("Back", "Assign", "Staff", new { @id = Model.Course.Id }, new { @class = "btn btn-primary" })
 <br />
-@using (Html.BeginForm("AssignTrainer", "Staff", FormMethod.Post))
+@using (Html.BeginForm("AssignTrainer", "Staff", "POST"))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -21,7 +21,9 @@
     <br />
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Assign</button>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary" value="Assign" />
+        </div>
     </div>
 }
 

@@ -4,6 +4,9 @@
 }
 
 <h2>Assign</h2>
+@Html.ActionLink("Back", "CourseManagement", "Staff", null, new { @class = "btn btn-primary" })
+<br />
+<br />
 @Html.ActionLink("Assign Trainee", "AssignTrainee", new { @id = Model.Course.Id }, new { @class = "btn btn-primary" })
 <table class="table">
     <thead>

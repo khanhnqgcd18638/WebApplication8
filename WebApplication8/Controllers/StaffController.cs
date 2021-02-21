@@ -1,16 +1,12 @@
 ﻿using WebApplication8.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
-using System.Web.ModelBinding;
 using System.Web.Mvc;
-using System.Web.UI;
 
 namespace AppDeve.Controllers
 {
@@ -36,7 +32,6 @@ namespace AppDeve.Controllers
             var trainee = _context.Users.Where(t => t.Roles.Any(r => r.RoleId == "4")).ToList();
             if (!String.IsNullOrEmpty(searchString))
             {
-
                 trainee = _context.Users
                     .Where(t => t.Roles.Any(r => r.RoleId == "4") && t.UserName.Contains(searchString) == true)
                     .ToList();
@@ -138,15 +133,28 @@ namespace AppDeve.Controllers
             _context.SaveChanges();
             return RedirectToAction("TrainerProfile");
         }
-        public ActionResult CourseManagement()
+        public ActionResult CourseManagement(string searchString)
         {
             var courses = _context.Courses.Include(t => t.Category).ToList();
+            if (!String.IsNullOrWhiteSpace(searchString))
+            {
+                courses = _context.Courses
+                .Where(t => t.CourseName.Contains(searchString))
+                .Include(t => t.Category)
+                .ToList();
+            }
             return View(courses);
-
         }
-        public ActionResult CategoryView()
+        public ActionResult CategoryView(string searchString)
         {
-            return View(_context.Categories.ToList());
+            var categories = _context.Categories.ToList();
+            if (!String.IsNullOrWhiteSpace(searchString))
+            {
+                 categories = _context.Categories
+                .Where(t => t.CategoryName.Contains(searchString))
+                .ToList();
+            }
+            return View(categories);
         }
         public ActionResult CreateCategory()
         {

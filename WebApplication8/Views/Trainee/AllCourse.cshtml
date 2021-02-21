@@ -1,12 +1,13 @@
 ﻿@model List<WebApplication8.Models.Course>
 @{
-    ViewBag.Title = "CourseManagement";
+    ViewBag.Title = "AllCourse";
 }
 
-<h2>CourseManagement</h2>
-@Html.ActionLink("Back", "Index", "Staff", null, new { @class = "btn btn-primary" })
+<h2>AllCourse</h2>
+@Html.ActionLink("Back", "Index", "Trainee", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Course Asigned", "CourseAssign", "Trainee", null, new { @class = "btn btn-primary" })
 <h1> </h1>
-@using (Html.BeginForm("CourseManagement", "Staff", "POST"))
+@using (Html.BeginForm("AllCourse", "Trainee", "POST"))
 {
     <div class="form-group">
         @Html.Label("Search")
@@ -14,8 +15,6 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </div>
 }
-@Html.ActionLink("Create", "CreateCourse", "Staff", null, new { @class = "btn btn-primary" })
-@Html.ActionLink("Manage Category", "CategoryView", "Staff", null, new { @class = "btn btn-success" })
 <table class="table">
     <thead>
         <tr>
@@ -33,21 +32,11 @@
                 <td>@item.CourseName</td>
                 <td>@item.Category.CategoryName</td>
                 <td>
-                    @Html.ActionLink("Edit", "EditCourse", "Staff",
-                                 new { id = item.Id },
-                                 new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Delete", "DeleteCourse", "Staff",
-                                 new { id = item.Id },
-                                 new { @class = "btn btn-danger" })
                     @Html.ActionLink("Details", "DetailCourse", "Staff",
                                  new { id = item.Id },
                                  new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Assign", "Assign", "Staff",
-                                 new { id = item.Id },
-                                 new { @class = "btn btn-success" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
