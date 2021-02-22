@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace AppDeve.Controllers
 {
+    [Authorize(Roles ="staff")]
     public class StaffController : Controller
     {
         private ApplicationUser _user;

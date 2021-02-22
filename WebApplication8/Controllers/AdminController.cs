@@ -47,6 +47,5 @@ namespace WebApplication8.Controllers
             _context.SaveChanges();
             return RedirectToAction("");
         }
-
     }
 }

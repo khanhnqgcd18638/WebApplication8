@@ -3,29 +3,33 @@
     ViewBag.Title = "TrainerView";
 }
 
-<h2>TrainerView</h2>
-@Html.ActionLink("Create a new account", "Register", "Account", null, new { @class = "btn btn-default" })
-<table style="width:100%;border:2px solid black">
-    <tr style="border: 2px solid black">
-        <th>ID</th>
-        <th>Name</th>
-        <th>Password</th>
-        <th></th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr style="border: 2px solid black">
-            <td style="border: 2px solid black;text-align:center">@item.Id</td>
-            <td style="border: 2px solid black;text-align:center">@item.UserName</td>
-            <td style="border: 2px solid black;text-align: center">@item.PasswordHash</td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", "Admin",
-                       new { id = item.Id },
-                       new { @class = "btn btn-default" })
-            </td>
-        </tr>
+<h2>Trainer View</h2>
 
-    }
+@Html.ActionLink("Create a new account", "Register", "Account", null, new { @class = "btn btn-primary" })
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Admin",
+                                new { id = item.Id },
+                                new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 

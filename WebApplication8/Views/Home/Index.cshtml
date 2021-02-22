@@ -11,9 +11,13 @@
 }
 @if (User.IsInRole("staff"))
 {
-    <h1>Welcome</h1>
+    <h1>Welcome Staff</h1>
 }
 @if (User.IsInRole("trainer"))
 {
-    <h1>Welcome Admin</h1>
+    <h1>Welcome Trainer</h1>
+}
+@if (User.IsInRole("trainee"))
+{
+    <h1>Welcome Trainee</h1>
 }
