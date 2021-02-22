@@ -8,21 +8,27 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
+        @Html.Label("Name: ")
         <h3 class="panel-title">@Model.UserName</h3>
     </div>
     <div class="panel-body">
+        @Html.Label("Email: ")
         @Model.Email
     </div>
     <div class="panel-body">
+        @Html.Label("Education: ")
         @Model.Education
     </div>
     <div class="panel-body">
+        @Html.Label("Work Place: ")
         @Model.WorkPlace
     </div>
     <div class="panel-body">
+        @Html.Label("Telephone: ")
         @Model.Telephone
     </div>
     <div class="panel-body">
+        @Html.Label("Type: ")
         @Model.Type
     </div>
 </div>

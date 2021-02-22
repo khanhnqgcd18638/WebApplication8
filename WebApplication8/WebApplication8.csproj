@@ -324,7 +324,6 @@
     <Content Include="Views\Trainer\Index.cshtml" />
     <Content Include="Views\Trainer\CourseAssign.cshtml" />
     <Content Include="Views\Trainee\Index.cshtml" />
-    <Content Include="Views\Trainee\EditTrainee.cshtml" />
     <Content Include="Views\Trainee\AllCourse.cshtml" />
     <Content Include="Views\Trainee\CourseAssign.cshtml" />
   </ItemGroup>
