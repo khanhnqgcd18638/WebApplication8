@@ -3,7 +3,7 @@
     ViewBag.Title = "AssignTrainer";
 }
 
-<h2>AssignTrainee</h2>
+<h2>AssignTrainer</h2>
 @Html.ActionLink("Back", "Assign", "Staff", new { @id = Model.Course.Id }, new { @class = "btn btn-primary" })
 <br />
 @using (Html.BeginForm("AssignTrainer", "Staff", "POST"))
@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.Label("Trainee", new { @class = "text-default" })
+        @Html.Label("Trainer", new { @class = "text-default" })
         @Html.DropDownListFor(m => m.TrainerId, new SelectList(Model.Trainers, "Id", "UserName"), new { @class = "dropdown" })
         @Html.ValidationMessageFor(m => m.TrainerId, "", new { @class = "text-danger" })
     </div>
