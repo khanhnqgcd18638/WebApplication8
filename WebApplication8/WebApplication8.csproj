@@ -229,6 +229,14 @@
     <Compile Include="Migrations\202102201259460_required.Designer.cs">
       <DependentUpon>202102201259460_required.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102231404284_debug.cs" />
+    <Compile Include="Migrations\202102231404284_debug.Designer.cs">
+      <DependentUpon>202102231404284_debug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102231411238_decv.cs" />
+    <Compile Include="Migrations\202102231411238_decv.Designer.cs">
+      <DependentUpon>202102231411238_decv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssignViewModel.cs" />
@@ -246,6 +254,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-WebApplication8-20210218112532.mdf" />
+    <Content Include="App_Data\aspnet-WebApplication8-20210218112532_log.ldf">
+      <DependentUpon>aspnet-WebApplication8-20210218112532.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -256,8 +268,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\fasfasdas.pubxml" />
-    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -328,9 +338,11 @@
     <Content Include="Views\Trainee\Index.cshtml" />
     <Content Include="Views\Trainee\AllCourse.cshtml" />
     <Content Include="Views\Trainee\CourseAssign.cshtml" />
+    <Content Include="Views\Admin\UpdateStaff.cshtml" />
+    <Content Include="Views\Admin\UpdateTrainer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -384,6 +396,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102201259460_required.resx">
       <DependentUpon>202102201259460_required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102231404284_debug.resx">
+      <DependentUpon>202102231404284_debug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102231411238_decv.resx">
+      <DependentUpon>202102231411238_decv.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

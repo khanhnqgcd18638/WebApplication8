@@ -47,5 +47,54 @@ namespace WebApplication8.Controllers
             _context.SaveChanges();
             return RedirectToAction("");
         }
+        public ActionResult UpdateStaff(string id)
+        {
+            var staff = _context.Users
+                .OfType<Staff>()
+                .SingleOrDefault(t => t.Id == id);
+            var updateStaff = new Staff()
+            {
+                Id = staff.Id,
+                Email = staff.Email,
+                UserName = staff.UserName,
+
+            };
+            return View(updateStaff);
+        }
+        [HttpPost]
+        public ActionResult UpdateStaff(Staff detailStaff)
+        {
+            var staffID = _context.Users.OfType<Staff>().FirstOrDefault(t => t.Id == detailStaff.Id);
+            staffID.UserName = detailStaff.UserName;
+            _context.SaveChanges();
+            return RedirectToAction("Index","Admin");
+        }
+        public ActionResult UpdateTrainer(string id)
+        {
+            var trainer = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == id);
+            var updateTrainerView = new Trainer()
+            {
+                Id = trainer.Id,
+                Email = trainer.Email,
+                UserName = trainer.UserName,
+                Education = trainer.Education,
+                WorkPlace = trainer.WorkPlace,
+                Telephone = trainer.Telephone,
+                Type = trainer.Type
+            };
+            return View(updateTrainerView);
+        }
+        [HttpPost]
+        public ActionResult UpdateTrainer(Trainer detailsTrainer)
+        {
+            var trainer = _context.Users.OfType<Trainer>().SingleOrDefault(t => t.Id == detailsTrainer.Id);
+            trainer.UserName = detailsTrainer.UserName;
+            trainer.Education = detailsTrainer.Education;
+            trainer.WorkPlace = detailsTrainer.WorkPlace;
+            trainer.Telephone = detailsTrainer.Telephone;
+            trainer.Type = detailsTrainer.Type;
+            _context.SaveChanges();
+            return RedirectToAction("Index","Admin");
+        }
     }
 }

@@ -23,6 +23,9 @@
                 <td>@item.UserName</td>
                 <td>@item.Email</td>
                 <td>
+                    @Html.ActionLink("Update", "UpdateStaff", "Admin",
+                                 new { id = item.Id },
+                                 new { @class = "btn btn-warning" })
                     @Html.ActionLink("Delete", "Delete", "Admin",
                                 new { id = item.Id },
                                 new { @class = "btn btn-danger" })
