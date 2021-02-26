@@ -340,6 +340,7 @@
     <Content Include="Views\Trainee\CourseAssign.cshtml" />
     <Content Include="Views\Admin\UpdateStaff.cshtml" />
     <Content Include="Views\Admin\UpdateTrainer.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />

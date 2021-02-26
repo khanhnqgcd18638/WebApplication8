@@ -29,6 +29,9 @@
                     @Html.ActionLink("Delete", "Delete", "Admin",
                                 new { id = item.Id },
                                 new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Change Password", "ChangePassword", "Admin",
+                                new { id = item.Id },
+                                new { @class = "btn btn-success" })
                 </td>
             </tr>
         }

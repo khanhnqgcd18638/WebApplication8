@@ -96,5 +96,33 @@ namespace WebApplication8.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index","Admin");
         }
+        public ActionResult ChangePassword(string id)
+        {
+            var user = _context.Users.FirstOrDefault(model => model.Id == id);
+            var changePasswordViewModel = new StaffChangePasswordViewModel()
+            {
+                UserId = user.Id
+            };
+            
+            return View(changePasswordViewModel);
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(StaffChangePasswordViewModel model)
+        {
+            var user = _context.Users.SingleOrDefault(t => t.Id == model.UserId);
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("Validation", "Some thing is wrong");
+                return View(model);
+            }
+            if (user.PasswordHash != null)
+            {
+                _usermanager.RemovePassword(user.Id);
+            }
+            _usermanager.AddPassword(user.Id, model.NewPassword);
+            return _usermanager.GetRoles(user.Id).First() == "trainer"?
+                RedirectToAction("TrainerView","Admin"): 
+                RedirectToAction("StaffView", "Admin");
+        }
     }
 }
