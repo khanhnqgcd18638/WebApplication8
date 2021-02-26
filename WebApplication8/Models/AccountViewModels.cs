@@ -112,7 +112,7 @@ namespace WebApplication8.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
-    public class StaffChangePasswordViewModel
+    public class AdminChangePasswordViewModel
     {
         public string UserId { get; set; }
         [Required]

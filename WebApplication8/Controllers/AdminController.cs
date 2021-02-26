@@ -99,7 +99,7 @@ namespace WebApplication8.Controllers
         public ActionResult ChangePassword(string id)
         {
             var user = _context.Users.FirstOrDefault(model => model.Id == id);
-            var changePasswordViewModel = new StaffChangePasswordViewModel()
+            var changePasswordViewModel = new AdminChangePasswordViewModel()
             {
                 UserId = user.Id
             };
@@ -107,7 +107,7 @@ namespace WebApplication8.Controllers
             return View(changePasswordViewModel);
         }
         [HttpPost]
-        public ActionResult ChangePassword(StaffChangePasswordViewModel model)
+        public ActionResult ChangePassword(AdminChangePasswordViewModel model)
         {
             var user = _context.Users.SingleOrDefault(t => t.Id == model.UserId);
             if (!ModelState.IsValid)
